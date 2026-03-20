@@ -1,0 +1,250 @@
+/* CSS Reset & Variables (Urban Dark with Crimson Glow Theme) */
+:root {
+  --bg-color: #0a0a0a;         /* Deep Black */
+  --card-bg: #1a1a1a;          /* Dark Grey */
+  --text-main: #f5f5f5;        /* Soft White */
+  --text-muted: #aaaaaa;       /* Muted Grey */
+  --accent-color: #ff3333;     /* Crimson Red */
+  --nav-bg: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+}
+
+h1, h2, h3 { font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: -1px;}
+
+/* Typography & Hierarchy */
+h1 { font-size: 2.8rem; letter-spacing: -1px; margin-bottom: 0.5rem; }
+h2 { font-size: 2.2rem; letter-spacing: -0.5px; margin-bottom: 2.5rem; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 5px;}
+h3 { font-size: 1.5rem; letter-spacing: -0.2px; }
+.subtitle { font-size: 1.3rem; margin-bottom: 2rem; font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;}
+.description { max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); opacity: 0.9;}
+
+/* Navigation (Flexbox) */
+header {
+  background-color: var(--nav-bg);
+  padding: 1.2rem;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh; /* เพิ่มความสูงเพื่อให้มีพื้นที่หายใจ */
+    padding: 2rem 1rem;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #121212 100%); /* เพิ่ม Texture พื้นหลังจางๆ */
+}
+.highlight-text { color: var(--accent-color); }
+
+/* Highlights Section (CSS Grid)*/
+.highlight-section { margin-bottom: 6rem; text-align: center; padding: 2rem 1rem;}
+
+.highlight-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr; /* Mobile First: 1 คอลัมน์ */
+  margin-top: 2rem;
+}
+
+.highlight-card {
+  background-color: var(--card-bg);
+  padding: 3rem 2.5rem;
+  border-radius: 8px;
+  border-bottom: 3px solid transparent;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+.highlight-card h3 { color: var(--text-main); margin-bottom: 1rem; }
+.highlight-card p { font-size: 1rem; color: var(--text-muted); }
+
+.highlight-card:hover {
+  border-bottom: 3px solid var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 51, 51, 0.1);
+  border-color: var(--accent-color);
+}
+.highlight-card:hover h3 { color: var(--accent-color); }
+
+/* Preview Album Section (CSS Grid)*/
+.preview-album-section { margin-bottom: 6rem; text-align: center; padding: 2rem 1rem;}
+
+.photo-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile First: 1 คอลัมน์ */
+  margin-top: 2rem;
+}
+
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--card-bg);
+  color: var(--text-muted);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  /* จำลองภาพถ่ายจริง (ห้ามลืมเปลี่ยน URL รูปภาพจำลองเป็นรูปถ่ายจริงของคุณนะครับ Puriwich) */
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1518291410291-03061266b033?q=80&w=600&auto=format&fit=crop'); 
+  background-size: cover; 
+  background-position: center;
+}
+.photo-item:nth-child(2) { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1549497538-303791108f94?q=80&w=600&auto=format&fit=crop'); }
+.photo-item:nth-child(3) { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1520699911609-52d3a3fc3188?q=80&w=600&auto=format&fit=crop'); }
+
+.photo-item figcaption {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 1rem;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.photo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(255, 51, 51, 0.15);
+  border-color: var(--accent-color);
+}
+.photo-item:hover figcaption { opacity: 1; transform: translateY(0); }
+.photo-item::after {
+    content: "";
+    position: absolute;
+    width: 100%; height: 100%;
+    background: rgba(255, 51, 51, 0.2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.photo-item:hover::after { opacity: 1; }
+
+/*Call to Action Section (Flexbox)*/
+.cta-section {
+  text-align: center;
+  background-color: var(--card-bg);
+  padding: 5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: radial-gradient(circle at center, var(--card-bg) 0%, #000000 100%);
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.1);
+}
+
+.cta-section h2 { margin-bottom: 1rem; }
+.cta-section p { color: var(--text-muted); margin-bottom: 2.5rem; }
+
+.cta-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--text-muted);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--card-bg);
+}
+
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--nav-bg);
+  color: var(--text-muted);
+  border-top: 1px solid var(--card-bg);
+}
+
+/*Media Queries (Responsive Design)*/
+@media (min-width: 768px) {
+  .nav-links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  /* จัดให้ 2 กล่องแสดงผลในบรรทัดเดียวกันแบบสวยงามบนจอใหญ่ */
+  .highlight-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  
+  /* จัดให้ 3 กล่องแสดงผลในบรรทัดเดียวกันบนจอใหญ่ */
+  .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  
+  .cta-buttons { gap: 30px; }
+}
