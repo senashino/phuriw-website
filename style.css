@@ -273,3 +273,116 @@ footer {
   
   .cta-buttons { gap: 30px; }
 }
+
+
+
+/* ==========================================================
+   Gallery Page & Lightbox (JavaScript Component)
+   ========================================================== */
+.js-photo-grid {
+    display: grid;
+    gap: 15px;
+    /* Responsive Grid: ขยายคอลัมน์อัตโนมัติเมื่อจอใหญ่ขึ้น */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(255, 51, 51, 0.2);
+    border-color: var(--accent-color);
+}
+
+/* หน้าต่าง Modal */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+/* รูปภาพใน Modal */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 75vh;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 30px rgba(255, 51, 51, 0.3);
+    border-radius: 4px;
+
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* ปุ่มปิด (X) */
+.close-cursor {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--text-muted);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-cursor:hover { color: var(--accent-color); }
+
+/* ปุ่มเลื่อนซ้าย-ขวา */
+.nav-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+.nav-btn:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.prev-btn { left: 5%; }
+.next-btn { right: 5%; }
+
+/* ข้อความใต้รูป (ดึงมาจาก alt ของรูป) */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: var(--accent-color);
+    padding: 15px 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
