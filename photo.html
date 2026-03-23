@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | My Personal Website</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main Navigation">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="photo.html" aria-current="page" class="active">Gallery</a></li>
+                <li><a href="about.html">My CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" style="min-height: 40vh;">
+            <h1>Street <span class="highlight-text">Gallery</span></h1>
+            <p class="subtitle">Interactive Photo Collection</p>
+            <p class="description">Explore my collection of moments captured in time.</p>
+        </section>
+
+    </main>
+
+    <div id="lightbox" class="lightbox-modal">
+        <span class="close-cursor" id="closeLightbox">&times;</span>
+        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+        <img class="lightbox-content" id="lightboxImg">
+        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Personal Website Project.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
