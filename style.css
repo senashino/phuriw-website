@@ -386,3 +386,124 @@ footer {
     font-size: 1.2rem;
     letter-spacing: 1px;
 }
+
+
+
+/* ==========================================================
+   CV Page Styles (Grid & Flexbox Implementation)
+   ========================================================== */
+
+.cv-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem;
+}
+
+/* ใช้ CSS Grid แบ่งเป็น 2 คอลัมน์สำหรับจอใหญ่ */
+.cv-grid-container {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr; /* Mobile First: 1 คอลัมน์ */
+}
+
+/* Sidebar Styling */
+.cv-sidebar {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 4px solid var(--accent-color);
+}
+
+.cv-block {
+    margin-bottom: 2.5rem;
+}
+
+.cv-block h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.cv-block p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-list {
+    list-style: none;
+    color: var(--text-muted);
+}
+
+.skill-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 15px;
+}
+
+.skill-list li::before {
+    content: "▪";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Main Content Styling */
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.experience-item {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateX(10px);
+    border-left-color: var(--accent-color);
+}
+
+/* ใช้ Flexbox จัดการหัวข้อและวันที่ */
+.item-header {
+    display: flex;
+    flex-direction: column; /* เรียงเป็นแนวตั้งบนมือถือ */
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.item-header h4 {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    text-transform: none;
+}
+
+.date {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================
+   Responsive Design Updates (ข้อกำหนด 2.3)
+   ========================================================== */
+
+@media (min-width: 850px) {
+    .cv-grid-container {
+        /* ปรับเป็น 2 คอลัมน์ (ซ้าย 1 ส่วน, ขวา 2.5 ส่วน) */
+        grid-template-columns: 1fr 2.5fr;
+    }
+
+    .item-header {
+        flex-direction: row; /* เรียงเป็นแนวนอนบนจอใหญ่ */
+        align-items: center;
+    }
+}
